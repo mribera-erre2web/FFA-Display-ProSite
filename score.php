@@ -43,7 +43,7 @@ function render($all){
                         </td>
                         <td class="field tier1 points"><?php if(isset($player->points)): echo $player->points; else: echo "0"; endif;?></td>
                     </tr>
-                <?php
+                <?php 
                 $position++;
                 endforeach;?>
                 </tbody>
@@ -111,7 +111,7 @@ function render($all){
                                     <div class="bigvideo-item-inner">
                                         <div class="title <?php if($data->position==$match): ?>active<?php endif;?>">
                                             <div class="title_inner">
-                                                <?php $date = new DateTime($data->beginAt); echo $date->format('Y-m-d H:i')?>
+                                                <?php $date = new DateTime($data->beginAt); $date->setTimezone(new DateTimeZone('Europe/Rome'));  echo $date->format('d-m-Y H:i')?>
                                                 <div class="title_inner_inner ng-binding">Match #<?=$data->position?> - <?=$data->state?></div>
                                             </div>
                                         </div>
